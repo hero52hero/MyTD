@@ -1,0 +1,4 @@
+*.pdb
+/Binaries/ 
+/Build/
+/DerivedDataCache/
