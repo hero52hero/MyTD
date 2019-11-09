@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "StrategyGame.h"
 #include "SStrategyButtonWidget.h"
@@ -263,6 +263,12 @@ FReply SStrategyButtonWidget::OnMouseButtonUp(const FGeometry& MyGeometry, const
 			}
 		}
 	}
+	return FReply::Handled();
+}
+
+FReply SStrategyButtonWidget::OnTouchForceChanged(const FGeometry& MyGeometry, const FPointerEvent& TouchEvent)
+{
+	// consume this event, so PlayerInput does not get it
 	return FReply::Handled();
 }
 

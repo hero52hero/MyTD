@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 #pragma once
 
 #include "AIController.h"
@@ -67,11 +67,13 @@ public:
 #endif
 	// End AActor Interface
 
+protected:
 	// Begin Controller Interface
-	virtual void Possess(APawn* inPawn) override;
-	virtual void UnPossess() override;
+	virtual void OnPossess(APawn* inPawn) override;
+	virtual void OnUnPossess() override;
 	// End Controller Interface
 
+public:
 	// Begin AIController Interface
 	virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 	// End AIController Interface

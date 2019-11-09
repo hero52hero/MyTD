@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "StrategyGame.h"
 #include "StrategyAIController.h"
@@ -79,7 +79,6 @@ void AStrategyChar::OnMeleeImpactNotify()
 	const FVector TraceEnd = TraceStart + TraceDir * TraceDistance;
 	TArray<FHitResult> Hits;
 	FCollisionQueryParams TraceParams(SCENE_QUERY_STAT(MeleeHit), false, this);
-	TraceParams.bTraceAsyncScene = true;			// also trace against the async/cosmetic scene
 	FCollisionResponseParams ResponseParam(ECollisionResponse::ECR_Overlap);
 	GetWorld()->SweepMultiByChannel(Hits, TraceStart, TraceEnd, FQuat::Identity, COLLISION_WEAPON, FCollisionShape::MakeBox(FVector(80.f)), TraceParams, ResponseParam);
 

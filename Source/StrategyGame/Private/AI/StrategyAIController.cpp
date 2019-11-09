@@ -1,4 +1,4 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "StrategyGame.h"
 #include "StrategyAIController.h"
@@ -31,9 +31,9 @@ struct FPlayerData* AStrategyAIController::GetTeamData() const
 	return GetWorld()->GetGameState<AStrategyGameState>()->GetPlayerData(GetTeamNum());
 }
 
-void AStrategyAIController::Possess(APawn* inPawn)
+void AStrategyAIController::OnPossess(APawn* inPawn)
 {
-	Super::Possess(inPawn);
+	Super::OnPossess(inPawn);
 	
 	/** Create instances of our possible actions */
 	AllActions.Reset();
@@ -55,7 +55,7 @@ void AStrategyAIController::Possess(APawn* inPawn)
 	EnableLogic(true);
 }
 
-void AStrategyAIController::UnPossess()
+void AStrategyAIController::OnUnPossess()
 {
 	if (CurrentTarget != NULL)
 	{
@@ -72,7 +72,7 @@ void AStrategyAIController::UnPossess()
 
 	SetActorTickEnabled(false);
 	EnableLogic(false);
-	Super::UnPossess();
+	Super::OnUnPossess();
 }
 
 uint8 AStrategyAIController::GetTeamNum() const
